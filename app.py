@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 
@@ -16,8 +17,11 @@ CORS(app, resources={
 })
 
 
+instance_path = os.environ.get('INSTANCE_PATH', '/app/instance')
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{instance_path}/visitors.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
+
 db = SQLAlchemy(app)
 
 class Visitor(db.Model):
