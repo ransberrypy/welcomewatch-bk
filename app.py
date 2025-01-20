@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 CORS(app, resources={
     r"/api/*": {  # All routes under /api/
-        "origins": ["http://localhost:5174"],  # Your React app's URL
+        "origins": ["https://welcomewatch.netlify.app/"],  # Your React app's URL
         "methods": ["GET", "POST", "PUT", "DELETE"],  # Allowed methods
         "allow_headers": ["Content-Type"]  # Allowed headers
     }
