@@ -19,7 +19,7 @@ CORS(app, resources={
 
 instance_path = os.environ.get('INSTANCE_PATH', '/app/instance')
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{instance_path}/visitors.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
 
 
 db = SQLAlchemy(app)
